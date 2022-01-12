@@ -1,0 +1,16 @@
+@font-face {
+    font-family: din-lt;
+    src: url(../fonts/din-next-lt-w23-light.ttf);
+}
+@font-face {
+    font-family: din-rg;
+    src: url(../fonts/din-next-lt-w23-regular.ttf);
+}
+@font-face {
+    font-family: din-md;
+    src: url(../fonts/din-next-lt-w23-medium.ttf);
+}
+@font-face {
+    font-family: din-bd;
+    src: url(../fonts/din-next-lt-w23-bold-1.ttf);
+}

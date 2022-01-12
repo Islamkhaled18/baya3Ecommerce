@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,13 @@ Route::group(
 
         Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' > 'auth:admin'], function () {
             Route::get('/','DashboardController@index')->name('admin.dashboard'); //the first page Admin visit after login
+            Route::get('logout','LoginController@logout')->name('admin.logout'); // logout
+            //categories
+            Route::resource('Categories', 'CategoryController')->except('show');
+            Route::get('delete/{id}', 'CategoryController@delete')->name('admin.categories.delete');     
+            //categories
+
+            
 
         });//Routes after login
 
