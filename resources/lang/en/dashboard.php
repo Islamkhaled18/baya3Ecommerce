@@ -18,6 +18,8 @@ return [
     'login' => 'Login',
     'email'=>'Email',
     'password'=>'Password',
+    'logout'=>'Logout',
+    'category_photo'=>'Category photo',
     'login_to_dashboard' => 'Login to dashboard',
     'total_sales'   => 'Total Sales',
     'total_orders'  => 'Total Orders',

@@ -16,9 +16,10 @@ return [
     'login'=>'تسجيل دخول',
     'email'=>'البريد الالكتروني',
     'password'=>'الرقم السري',
-    
+    'logout'=>'تسجيل خروج',
     'write_your_email'=>'من فضلك اكتب البريد الالكتروني',
     'remember_me'=>'تذكرني',
+    'category_photo'=>'صورة القسم',
     'login_to_dashboard'=>'الدخول الى لوحة التحكم',
     'total_sales'=> 'إجمالى المبيعات',
     'total_orders'=> 'إجمالى الطلبات',

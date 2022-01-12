@@ -5,6 +5,10 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Profile;
+use App\Models\Store;
+use App\Models\Product;
+
 
 class User extends Authenticatable
 {
@@ -16,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+         'email', 'password', 'mobile'
     ];
 
     /**
@@ -36,4 +40,45 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function profile()
+    {
+
+        return $this->hasOne(Profile::class, 'user_id');
+    }
+
+    public function stores()
+    {
+        return $this->hasMany(Store::class);
+    }
+
+    public function favouritelist(){
+        return $this->belongsToMany(Product::class, 'wishlists')->withTimeStamps();
+    }   
+    
+    public function favouritelistHas($productId)
+    {
+        return Self::favouritelist()->where('product_id',$productId)->exists();
+    }
+
+    public function order()
+    {
+
+        return $this->hasOne(Order::class, 'user_id');
+    }
+
+    public function orderitems()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+
+    public function transaction()
+    {
+
+        return $this->hasOne(Transaction::class, 'user_id');
+    }
+
+    public function chats(){
+        return $this->hasMany(Chat::class);
+    }
 }

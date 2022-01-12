@@ -18,6 +18,9 @@ class DatabaseSeeder extends Seeder
         $admin->password = bcrypt('123456789');
         $admin->save();
 
-        // $this->call(UsersTableSeeder::class);
+        $this->call(UserTableSeeder::class);
+        $this->call(CategoryTableSeeder::class);
+        $this->call(StoreTableSeeder::class);
+
     }
 }

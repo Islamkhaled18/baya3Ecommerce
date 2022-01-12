@@ -13,7 +13,8 @@ class LoginController extends Controller
         return view('admin.auth.login');
     }
 
-    public function postLogin(AdminLoginRequest $request){
+    public function postLogin(AdminLoginRequest $request)
+    {
 
         $remember_me = $request->has('remember_me') ? true : false;
 
@@ -21,6 +22,19 @@ class LoginController extends Controller
             return redirect()->route('admin.dashboard');
         }
         return redirect()->back()->with(['error' => __('dashboard.error')]);
+    }
 
+    public function logout()
+    {
+
+        $gaurd = $this->getGaurd();
+        $gaurd->logout();
+
+        return redirect()->route('admin.login');
+    }
+
+    private function getGaurd()
+    {
+        return auth('admin');
     }
 }
